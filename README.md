@@ -1,6 +1,6 @@
 # pomodoro_timer
 
-A new Flutter project.
+A flutter application that counts down and logs the amount of time/sets taken using the pomodoro method.
 
 ## Getting Started
 
