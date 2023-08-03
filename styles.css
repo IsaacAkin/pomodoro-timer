@@ -1,0 +1,47 @@
+* {
+    font-family: "Plus Jakarta Sans";
+    background-color: aliceblue;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+.start-btn {
+    padding: 1%;
+    border-radius: 12%;
+    font-size: 25px;
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color: rgb(0, 140, 255);
+}
+
+.decerement,
+.increment {
+    padding: 1%;
+    border-radius: 100%;
+    font-size: 25px;
+    background-color: rgb(0, 140, 255);
+}
+
+.buttons {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.timer {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10%;
+    margin-bottom: 2%;
+}
+
+div span {
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    padding: 1%;
+    border-radius: 6%;
+}
