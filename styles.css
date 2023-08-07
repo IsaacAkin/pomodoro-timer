@@ -1,6 +1,6 @@
 * {
     font-family: "Plus Jakarta Sans";
-    background-color: aliceblue;
+    background-color: bisque;
 }
 
 h1 {
@@ -14,7 +14,8 @@ h1 {
     font-size: 25px;
     margin-left: 1%;
     margin-right: 1%;
-    background-color: rgb(0, 140, 255);
+    background-color: white;
+    cursor: pointer;
 }
 
 .decerement,
@@ -44,4 +45,8 @@ div span {
     border-style: solid;
     padding: 1%;
     border-radius: 6%;
+}
+
+.start-btn:hover {
+    background-color: oldlace;
 }
