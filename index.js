@@ -1,11 +1,13 @@
 const el = {};
-const timerElement = document.getElementById("timer");
-const startbtn = document.getElementById("startbtn");
+const timerElement = document.querySelector('#timer');
+const startBtn = document.querySelector('#startbtn');
+
+timerElement.textContent = '00:30';
 
 function startTimer() {
     let seconds = 30;
     let timer = setInterval(() => {
-        timerElement.innerHTML = '00:' + seconds;
+        timerElement.textContent = '00:' + seconds;
         seconds--;
         if (seconds < 0) {
             clearInterval(timer);
@@ -13,14 +15,21 @@ function startTimer() {
     }, 1000);
 }
 
+function changeToPause() {
+    startBtn.textContent = 'Pause';
+}
+
 /** Page elements used are set up here */
 function prepareHandles() {
-    el.startbtn = document.querySelector('#startbtn');
+    el.startBtn = document.querySelector('#startbtn');
 }
 
 /** Connects listeners for button clicks */
 function eventListeners() {
-    el.startbtn.addEventListener('click', startTimer);
+    el.startBtn.addEventListener('click', () => {
+        startTimer(); 
+        changeToPause()
+    });
 }
 
 prepareHandles();
