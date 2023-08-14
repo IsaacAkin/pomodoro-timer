@@ -4,14 +4,39 @@ const startBtn = document.querySelector('#startbtn');
 const incrementBtn = document.querySelector('#incrementbtn');
 const decrementBtn = document.querySelector('#decrementbtn');
 
-timerElement.textContent = '00:30';
+/** Sets the timers starting values */
+let minutes = 25;
+let seconds = 59;
+timerElement.textContent = minutes + ':00';
 
+/** Starts the timer on button click */
 function startTimer() {
-    let seconds = 30;
+    startBtn.textContent = 'Pause';
     let timer = setInterval(() => {
-        timerElement.textContent = '00:' + seconds;
-        seconds--;
-        if (seconds < 0) {
+
+        // Adds 0 in front of the minute and second values if they go below 10 
+        timerElement.textContent = minutes + ':' + seconds;
+        if (minutes < 10 && seconds < 10) {
+            timerElement.textContent = "0" + minutes + ":0" + seconds;
+        } else if (minutes < 10) {
+            timerElement.textContent = "0" + minutes + ":" + seconds;
+        } else if (seconds < 10){
+            timerElement.textContent = minutes + ":0" + seconds;
+        }
+
+        // Decrements the seconds each second. Once seconds reaches 0, 
+        // minutes is decremented by 1 and seconds goes back to 59
+        seconds--
+        if (seconds === 0) {
+            minutes--
+            seconds = 59;
+            if (seconds < 0) {
+                clearInterval(timer);
+            }
+        }
+
+        // Timer stops once minutes equal 0
+        if (minutes < 0) {
             clearInterval(timer);
         }
     }, 1000);
@@ -41,10 +66,6 @@ function removeButtons() {
     decrementBtn.remove();
 }
 
-function changeToPause() {
-    startBtn.textContent = 'Pause';
-}
-
 /** Page elements used are set up here */
 function prepareHandles() {
     el.startBtn = document.querySelector('#startbtn');
@@ -55,8 +76,7 @@ function prepareHandles() {
 /** Connects listeners for button clicks */
 function eventListeners() {
     el.startBtn.addEventListener('click', () => {
-        startTimer(); 
-        changeToPause();
+        startTimer();
         removeButtons();
     });
     el.incrementBtn.addEventListener('click', incrementTimer);
