@@ -1,8 +1,24 @@
-const el = {};
+'use strict';
+
+/** Page elements used are set up here */
 const timerElement = document.querySelector('#timer');
 const startBtn = document.querySelector('#startbtn');
 const incrementBtn = document.querySelector('#incrementbtn');
 const decrementBtn = document.querySelector('#decrementbtn');
+const buttonsContainer = document.querySelector('#buttons');
+
+/** Buttons created in JavaScript */
+const pauseBtn = document.createElement('button');
+pauseBtn.style.display = "none";
+pauseBtn.textContent = "Pause";
+pauseBtn.classList.add('start-btn');
+buttonsContainer.appendChild(pauseBtn);
+
+const resumeBtn = document.createElement('button');
+resumeBtn.style.display = "none";
+resumeBtn.textContent = "Resume";
+resumeBtn.classList.add('start-btn');
+buttonsContainer.appendChild(resumeBtn);
 
 /** Sets the timers starting values */
 let minutes = 25;
@@ -62,23 +78,32 @@ function decrementTimer() {
 
 /** Removes increment and decrement buttons once the timer has started */
 function removeButtons() {
-    incrementBtn.remove();
-    decrementBtn.remove();
-}
-
-/** Page elements used are set up here */
-function prepareHandles() {
-    el.startBtn = document.querySelector('#startbtn');
-    el.incrementBtn = document.querySelector('#incrementbtn');
-    el.decrementBtn = document.querySelector('#decrementbtn');
+    startBtn.style.display = "none";
+    incrementBtn.style.display = "none";
+    decrementBtn.style.display = "none";
 }
 
 /** Connects listeners for button clicks */
 function eventListeners() {
     el.startBtn.addEventListener('click', () => {
+        pauseBtn.style.display = "inline";
+
         startTimer();
         removeButtons();
     });
+
+    pauseBtn.addEventListener('click', () => {
+        pauseBtn.style.display = "none";
+        // function to pause timer goes here
+        resumeBtn.style.display = "inline";
+    });
+    
+    resumeBtn.addEventListener('click', () => {
+        resumeBtn.style.display = "none";
+        // function to resume timer goes here
+        pauseBtn.style.display = "inline";
+    });
+
     el.incrementBtn.addEventListener('click', incrementTimer);
     el.decrementBtn.addEventListener('click', decrementTimer);
 }
