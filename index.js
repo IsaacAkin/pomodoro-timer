@@ -26,6 +26,7 @@ let seconds = 0 + "0";
 timerElement.textContent = minutes + ':' + seconds;
 
 let setCounter = 0;
+let timerInterval;
 
 /** Starts the timer */
 function startTimer() {
@@ -48,6 +49,25 @@ function startTimer() {
         }
     }, 1000);
 }
+
+/** Pauses the timer */
+// function pauseTimer() {
+//     clearInterval(timerInterval);
+//     timerInterval = undefined;
+
+//     resumeBtn.style.display = "inline";
+// }
+
+/** Resumes the timer */
+// function resumeTimer() {
+//     if (!timerInterval) {
+//         timerInterval = setInterval(() => {
+//             startTimer();
+//         }, 1000);
+//     }
+
+//     pauseBtn.style.display = "inline";
+// }
 
 /** Increments timer */
 function incrementTimer() {
