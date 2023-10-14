@@ -76,8 +76,8 @@ function decrementTimer() {
     timerElement.textContent = minutes + ':00';
 }
 
-/** Removes increment and decrement buttons once the timer has started */
-function removeButtons() {
+/** Hides buttons once the timer has started */
+function hideButtons() {
     startBtn.style.display = "none";
     incrementBtn.style.display = "none";
     decrementBtn.style.display = "none";
@@ -89,7 +89,7 @@ function eventListeners() {
         pauseBtn.style.display = "inline";
 
         startTimer();
-        removeButtons();
+        hideButtons();
     });
 
     pauseBtn.addEventListener('click', () => {
