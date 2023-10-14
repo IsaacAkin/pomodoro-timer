@@ -27,7 +27,7 @@ timerElement.textContent = minutes + ':' + seconds;
 
 let setCounter = 0;
 
-/** Starts the timer on button click */
+/** Starts the timer */
 function startTimer() {
     let timer = setInterval(() => {
 
@@ -49,7 +49,7 @@ function startTimer() {
     }, 1000);
 }
 
-/** Increments timer on button click */
+/** Increments timer */
 function incrementTimer() {
     minutes += 5;
     if (minutes > 60) { minutes = 60; }
@@ -57,7 +57,7 @@ function incrementTimer() {
     timerElement.textContent = minutes + ':00';
 }
 
-/** Decrements timer on button click */
+/** Decrements timer */
 function decrementTimer() {
     minutes -= 5;
     if (minutes < 15) { minutes = 15; }
@@ -65,7 +65,7 @@ function decrementTimer() {
     timerElement.textContent = minutes + ':00';
 }
 
-/** Hides buttons once the timer has started */
+/** Removes increment and decrement buttons */
 function hideButtons() {
     startBtn.style.display = "none";
     incrementBtn.style.display = "none";
