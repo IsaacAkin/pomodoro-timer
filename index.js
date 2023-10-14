@@ -22,38 +22,29 @@ buttonsContainer.appendChild(resumeBtn);
 
 /** Sets the timers starting values */
 let minutes = 25;
-let seconds = 59;
-timerElement.textContent = minutes + ':00';
+let seconds = 0 + "0";
+timerElement.textContent = minutes + ':' + seconds;
+
+let setCounter = 0;
 
 /** Starts the timer on button click */
 function startTimer() {
-    startBtn.textContent = 'Pause';
     let timer = setInterval(() => {
 
-        // Adds 0 in front of the minute and second values if they go below 10 
-        timerElement.textContent = minutes + ':' + seconds;
-        if (minutes < 10 && seconds < 10) {
-            timerElement.textContent = "0" + minutes + ":0" + seconds;
-        } else if (minutes < 10) {
-            timerElement.textContent = "0" + minutes + ":" + seconds;
-        } else if (seconds < 10){
-            timerElement.textContent = minutes + ":0" + seconds;
-        }
+        seconds--;
 
-        // Decrements the seconds each second. Once seconds reaches 0, 
-        // minutes is decremented by 1 and seconds goes back to 59
-        seconds--
-        if (seconds === 0) {
-            minutes--
+        if (seconds < 0) {
             seconds = 59;
-            if (seconds < 0) {
-                clearInterval(timer);
-            }
+            minutes--;
         }
 
-        // Timer stops once minutes equal 0
-        if (minutes < 0) {
+        const currentMinutes = minutes < 10 ? "0" + minutes : minutes;
+        const currentSeconds = seconds < 10 ? "0" + seconds : seconds;
+        timerElement.textContent = currentMinutes + ":" + currentSeconds;
+
+        if (minutes === 0 && seconds === 0) {
             clearInterval(timer);
+            setCounter++;
         }
     }, 1000);
 }
@@ -61,18 +52,16 @@ function startTimer() {
 /** Increments timer on button click */
 function incrementTimer() {
     minutes += 5;
-    if (minutes > 50) {
-        minutes = 50;
-    }
+    if (minutes > 60) { minutes = 60; }
+
     timerElement.textContent = minutes + ':00';
 }
 
 /** Decrements timer on button click */
 function decrementTimer() {
     minutes -= 5;
-    if (minutes < 25) {
-        minutes = 25;
-    }
+    if (minutes < 15) { minutes = 15; }
+
     timerElement.textContent = minutes + ':00';
 }
 
@@ -85,13 +74,14 @@ function hideButtons() {
 
 /** Connects listeners for button clicks */
 function eventListeners() {
-    el.startBtn.addEventListener('click', () => {
+    startBtn.addEventListener('click', () => {
+        timerElement.textContent = minutes + ':' + seconds;
         pauseBtn.style.display = "inline";
 
         startTimer();
         hideButtons();
     });
-
+    
     pauseBtn.addEventListener('click', () => {
         pauseBtn.style.display = "none";
         // function to pause timer goes here
@@ -104,9 +94,8 @@ function eventListeners() {
         pauseBtn.style.display = "inline";
     });
 
-    el.incrementBtn.addEventListener('click', incrementTimer);
-    el.decrementBtn.addEventListener('click', decrementTimer);
+    incrementBtn.addEventListener('click', incrementTimer);
+    decrementBtn.addEventListener('click', decrementTimer);
 }
 
-prepareHandles();
 eventListeners();
