@@ -50,6 +50,12 @@ body {
     gap: 10px;
 }
 
+#function-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* .start-btn:hover {
     background-color: antiquewhite;
     color: #344332;
