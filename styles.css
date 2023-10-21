@@ -3,7 +3,6 @@
 }
 
 body {
-    /* border: 1px solid black; */
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -14,7 +13,6 @@ body {
 }
 
 .heading-container {
-    /* border: 1px solid black; */
     color: #EAE2CD;
     text-align: center;
     background-color: #344332;
@@ -23,7 +21,6 @@ body {
 
 
 .timer-container {
-    /* border: 1px solid blue; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -31,7 +28,6 @@ body {
 }
 
 .timer {
-    /* border: 1px solid black; */
     text-align: center;
 }
 
@@ -44,7 +40,6 @@ body {
 }
 
 .buttons {
-    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -55,11 +50,6 @@ body {
     flex-direction: column;
     gap: 10px;
 }
-
-/* .start-btn:hover {
-    background-color: antiquewhite;
-    color: #344332;
-} */
 
 .start-btn,
 .decrement,
@@ -81,7 +71,6 @@ body {
     color: #344332;
 }
 
-.set-counter-container {
-    /* border: 1px solid red; */
+.empty-container {
     flex: 1;
 }

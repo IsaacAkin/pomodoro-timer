@@ -31,7 +31,6 @@ let minutes = 25;
 let seconds = 0 + "0";
 timerElement.textContent = minutes + ':' + seconds;
 
-let setCounter = 0;
 let timer;
 
 /** Starts the timer */
@@ -52,7 +51,6 @@ function startTimer() {
 
         if (minutes === 0 && seconds === 0) {
             resetTimer();
-            setCounter++;
         }
     }, 1000);
 }
@@ -84,7 +82,7 @@ function incrementTimer() {
 /** Decrements timer */
 function decrementTimer() {
     minutes -= 5;
-    if (minutes < 15) { minutes = 15; }
+    if (minutes < 5) { minutes = 5; }
 
     timerElement.textContent = minutes + ':00';
 }
