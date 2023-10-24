@@ -1,6 +1,6 @@
 # Pomodoro Timer
 
-A timer website created for studying using the pomodoro method.
+A timer website created for studying using the pomodoro method. I made this because I started using the Pomodoro method and found that it worked for me, so I wanted to build something that could help me with my learning.
 
 # Key Features
 
